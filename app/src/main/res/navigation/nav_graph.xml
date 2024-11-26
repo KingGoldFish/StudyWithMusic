@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <!-- MainFragment -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.studywithmusic.presentation.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <!-- 예: MP3 파일 재생 화면으로 이동 -->
+        <action
+            android:id="@+id/action_mainFragment_to_playingFragment"
+            app:destination="@id/playingFragment" />
+    </fragment>
+
+    <!-- PlayingFragment -->
+    <fragment
+        android:id="@+id/playingFragment"
+        android:name="com.example.studywithmusic.presentation.playing.PlayingFragment"
+        android:label="PlayingFragment"
+        app:enterAnim="@anim/slide_in_up"
+        app:exitAnim="@anim/slide_out_down"
+        app:popEnterAnim="@anim/slide_in_up"
+        app:popExitAnim="@anim/slide_out_down"
+        tools:layout="@layout/fragment_playing">
+        <argument
+            android:name="fileTitle"
+            app:argType="string"
+            app:nullable="false" />
+        <argument
+            android:name="filePath"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+
+    <!-- PlayListFragment -->
+    <fragment
+        android:id="@+id/playListFragment"
+        android:name="com.example.studywithmusic.presentation.playList.PlayListFragment"
+        android:label="PlaylistFragment"
+        tools:layout="@layout/fragment_play_list" />
+
+</navigation>

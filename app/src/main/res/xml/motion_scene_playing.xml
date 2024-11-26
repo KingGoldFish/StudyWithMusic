@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <!-- 전환 정의 -->
+    <Transition
+        motion:constraintSetStart="@id/collapsed"
+        motion:constraintSetEnd="@id/expanded"
+        motion:duration="300">
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:touchAnchorId="@id/playerContainer"
+            motion:touchAnchorSide="top" />
+    </Transition>
+
+    <!-- 확장 상태 -->
+    <ConstraintSet android:id="@+id/expanded">
+        <Constraint
+            android:id="@id/playerContainer"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+    </ConstraintSet>
+
+    <!-- 축소 상태 -->
+    <ConstraintSet android:id="@+id/collapsed">
+        <Constraint
+            android:id="@id/playerContainer"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHeight_default="wrap" />
+    </ConstraintSet>
+
+</MotionScene>
